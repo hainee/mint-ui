@@ -338,20 +338,20 @@
       },
 
       getYear(value) {
-        return this.isDateString(value) ? value.split(' ')[0].split(/-|\/|\./)[0] : value.getFullYear();
+        return this.isDateString(value) ? value.toString().split(' ')[0].split(/-|\/|\./)[0] : value.getFullYear();
       },
 
       getMonth(value) {
-        return this.isDateString(value) ? value.split(' ')[0].split(/-|\/|\./)[1] : value.getMonth() + 1;
+        return this.isDateString(value) ? value.toString().split(' ')[0].split(/-|\/|\./)[1] : value.getMonth() + 1;
       },
 
       getDate(value) {
-        return this.isDateString(value) ? value.split(' ')[0].split(/-|\/|\./)[2] : value.getDate();
+        return this.isDateString(value) ? value.toString().split(' ')[0].split(/-|\/|\./)[2] : value.getDate();
       },
 
       getHour(value) {
         if (this.isDateString(value)) {
-          const str = value.split(' ')[1] || '00:00:00';
+          const str = value.toString().split(' ')[1] || '00:00:00';
           return str.split(':')[0];
         }
         return value.getHours();
@@ -359,7 +359,7 @@
 
       getMinute(value) {
         if (this.isDateString(value)) {
-          const str = value.split(' ')[1] || '00:00:00';
+          const str = value.toString().split(' ')[1] || '00:00:00';
           return str.split(':')[1];
         }
         return value.getMinutes();
